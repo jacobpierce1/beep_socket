@@ -27,5 +27,7 @@ You can then send the signal to beep on the server connection via
 For typical usage, you can send a beep at then end of compiling something like so: 
 
 	```
-	>>>  make && beep_socket_send.sh
+	>>>  make || beep_socket_send.sh
 	```
+
+Note that the above will send a signal at the end of compilation even if it fails. 
