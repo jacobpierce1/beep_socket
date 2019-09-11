@@ -30,7 +30,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
                 if data == b'beep' : 
 
-                    print( 'data matches' )
+                    # print( 'data matches' )
 
                     os.system( BEEP_SCRIPT )
 
