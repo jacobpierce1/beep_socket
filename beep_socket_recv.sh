@@ -3,4 +3,4 @@
 basepath=$(dirname $0)
 base=$(basename $0 .sh)
 
-python $basepath/beep_socket_recv.py
+python3 $basepath/beep_socket_recv.py
