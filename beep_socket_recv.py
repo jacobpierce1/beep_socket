@@ -16,22 +16,24 @@ BEEP_SCRIPT = os.path.dirname(os.path.realpath(__file__)) + '/beep.sh'
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
     s.listen()
-    conn, addr = s.accept()
-    with conn:
-        
-        print('Connected by', addr)
-        
-        while True:
-        
-            data = conn.recv(1024)
 
-            print( data )
-            print( repr( data ) )
+    while True : 
 
-            if data == 'beep' : 
-                os.system( BEEP_SCRIPT )
-        
-            if not data:
-                time.sleep(1)
-        
-            conn.sendall(data)
+        conn, addr = s.accept()
+        with conn:
+            
+            # print('Connected by', addr)
+            
+            while True:
+            
+                data = conn.recv(1024)
+
+                if data == b'beep' : 
+
+                    print( 'data matches' )
+
+                    os.system( BEEP_SCRIPT )
+
+                if not data:
+                    break 
+            
