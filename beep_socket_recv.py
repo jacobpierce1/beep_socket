@@ -9,7 +9,7 @@ HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
 PORT = int( os.environ[ 'BEEP_SOCKET_RECV_PORT' ] )     
 
 
-BEEP_SCRIPT = print(os.path.dirname(os.path.realpath(__file__))) + '/beep.sh'
+BEEP_SCRIPT = os.path.dirname(os.path.realpath(__file__)) + '/beep.sh'
 
 
 
@@ -26,6 +26,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             data = conn.recv(1024)
 
             print( data )
+            print( repr( data ) )
 
             if data == 'beep' : 
                 os.system( BEEP_SCRIPT )

@@ -8,7 +8,7 @@ PORT = int( os.environ[ 'BEEP_SOCKET_SEND_PORT' ] )       # The port used by the
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
-    s.sendall(b'beep')
+    s.sendall( b'beep' )
     # data = s.recv(1024)
 
-print('Received', repr(data))
+# print('Received', repr(data))
